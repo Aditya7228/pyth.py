@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Calculator</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            text-align: center;
+            color: bisque;
+            margin-top: 20px;
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 400px;
+            margin: 80px auto;
+            text-align: center;
+            background-color: burlywood;
+            padding: 25px;
+            border: 3px solid aliceblue;
+            font-size: large;
+        }
+
+        select, input {
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            padding: 6px 12px;
+            margin-top: 10px;
+        }
+
+        .result-box {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: blanchedalmond;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body style="background-image: url('{{ url_for('static', filename='earth.jpg') }}');">
+
+    <h1>MATH CALCULATOR</h1>
+
+    <div class="container">
+        <p>Welcome to Math CALCULATOR!</p>
+
+        <form method="POST">
+            ENTER NUM1:<br>
+            <input type="number" name="num1" required><br><br>
+
+            ENTER NUM2:<br>
+            <input type="number" name="num2" required><br><br>
+
+            CHOOSE OPERATION:<br>
+            <select name="operation">
+                <option value="add">ADDITION</option>
+                <option value="sub">SUBTRACTION</option>
+                <option value="mul">MULTIPLICATION</option>
+                <option value="div">DIVISION</option>
+                <option value="floor">FLOOR DIVISION</option>
+                <option value="exp">EXPONENT</option>
+            </select><br><br>
+
+            <button type="submit">CALCULATE</button>
+        </form>
+
+        {% if result is not none %}
+            <div class="result-box">
+                <b>RESULT: {{ result }}</b>
+            </div>
+        {% endif %}
+
+        <h4>THANKS FOR USING!</h4>
+    </div>
+
+</body>
+</html>
